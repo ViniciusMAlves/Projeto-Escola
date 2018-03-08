@@ -19,13 +19,13 @@ public class Professor extends Pessoa {
  private float valorHorario;
  private float salario;
 
-    public Professor(ArrayList<Disciplina> disciplina, int cargaHoraria, float valorHorario, float salario, String nome, String rg, String cpf, Date dataNascimento, int idade) {
-        super(nome, rg, cpf, dataNascimento, idade);
-        this.disciplina = disciplina;
+    public Professor(int cargaHoraria, float valorHorario, String nome, String rg, String cpf, Date dataNascimento) {
+        super(nome, rg, cpf, dataNascimento);
         this.cargaHoraria = cargaHoraria;
         this.valorHorario = valorHorario;
-        this.salario = this.calculaSalario(cargaHoraria, valorHorario);
     }
+
+   
        
     public float calculaSalario(float qtdeHoras, float valorHoras){
         return qtdeHoras * valorHoras;

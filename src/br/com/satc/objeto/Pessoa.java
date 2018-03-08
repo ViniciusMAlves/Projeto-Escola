@@ -18,7 +18,7 @@ public abstract class  Pessoa  {
     private Date dataNascimento;
     private int idade;
 
-    public Pessoa(String nome, String rg, String cpf, Date dataNascimento, int idade) {
+    public Pessoa(String nome, String rg, String cpf, Date dataNascimento) {
         this.nome = nome;
         this.rg = rg;
         this.cpf = cpf;
