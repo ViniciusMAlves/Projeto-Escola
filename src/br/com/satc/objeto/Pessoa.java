@@ -7,7 +7,6 @@ package br.com.satc.objeto;
 
 import java.util.Calendar;
 import java.util.Date;
-import javafx.scene.chart.PieChart;
 
 /**
  *
@@ -100,7 +99,7 @@ public abstract class  Pessoa  {
 
     @Override
     public String toString() {
-        return "Pessoa{" + "nome=" + nome + ", rg=" + rg + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento + ", idade=" + idade + '}';
+        return "Pessoa{" + "\n Nome=" + nome + ",\n RG=" + rg + ",\n CPF=" + cpf + ",\n Data de Nascimento=" + dataNascimento + ",\n Idade=" + idade + '}';
     }
     
     

@@ -5,8 +5,6 @@
  */
 package br.com.satc.objeto;
 
-import java.util.Date;
-
 /**
  *
  * @author vinicius.132217
@@ -51,7 +49,7 @@ public class Disciplina {
 
     @Override
     public String toString() {
-        return "Disciplina{" + "Nome=" + Nome + ", departamento=" + departamento + ", status=" + status + '}';
+        return "Disciplina{" + "\n Nome=" + Nome + ",\n departamento=" + departamento + ",\n status=" + status + '}';
     }
 
    

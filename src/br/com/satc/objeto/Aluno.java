@@ -15,7 +15,7 @@ import java.util.Date;
 public class Aluno extends Pessoa{
     private int matricula;
     private Date dataMatricula;
-    private ArrayList<Disciplina> disciplina;
+    private ArrayList<Disciplina> disciplina = new ArrayList<Disciplina>();
 
     public Aluno(int matricula, Date dataMatricula, String nome, String rg, String cpf, Date dataNascimento) {
         super(nome, rg, cpf, dataNascimento);
@@ -53,8 +53,12 @@ public class Aluno extends Pessoa{
 
     @Override
     public String toString() {
-        return "Aluno{" + "matricula=" + matricula + ", dataMatricula=" + dataMatricula + ", disciplina=" + disciplina + '}';
+        return super.toString()+ "\n Matricula=" + matricula + "\n Data da Matricula=" + dataMatricula + "\n Disciplina=" + disciplina ;
     }
+
+    
+
+   
     
     
     
