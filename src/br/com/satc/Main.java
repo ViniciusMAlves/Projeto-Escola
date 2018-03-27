@@ -7,7 +7,6 @@ package br.com.satc;
 
 import br.com.satc.objeto.Aluno;
 import br.com.satc.objeto.Disciplina;
-import br.com.satc.objeto.Pessoa;
 import br.com.satc.objeto.Professor;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,6 +22,7 @@ public class Main {
 
     /**
      * @param args the command line arguments
+     * @throws java.text.ParseException
      */
     public static void main(String[] args) throws ParseException {
 
@@ -62,9 +62,7 @@ public class Main {
 
                     if (JOptionPane.showConfirmDialog(null, "O professor ja da aula em alguma matéria ?") == 0) {
                         String matExistentep = "";
-                        for (Disciplina materia : materias) {
-                            matExistentep += "\n" + materias.indexOf(materia) + "" + materia.getNome();
-                        }
+                        matExistentep = materias.stream().map((materia) -> "\n" + materias.indexOf(materia) + " : " + materia.getNome()).reduce(matExistentep, String::concat);
                         do {
                             int esc = Integer.parseInt(JOptionPane.showInputDialog("Informe a máteria" + matExistentep));
                             matProfe.get(matProfe.size() - 1).getDisciplina().add(materias.get(esc));
@@ -99,7 +97,7 @@ public class Main {
                     break;
                 }
                 case 4: {
-                    int cod = Integer.parseInt( JOptionPane.showInputDialog("Você quer por : \n"
+                    int cod = Integer.parseInt(JOptionPane.showInputDialog("Você quer por : \n"
                             + "1:Codigo \n"
                             + "2:Nome"));
                     switch (cod) {
@@ -112,33 +110,106 @@ public class Main {
                             int inf = Integer.parseInt(JOptionPane.showInputDialog("Informe a máteria" + matExistente));
 
                             JOptionPane.showMessageDialog(null, materias.get(inf).toString());
+                            break;
                         }
                         case 2: {
-                            
+                            String matExistente = "";
+                            for (Disciplina materia : materias) {
+                                matExistente += "\n" + materia.getNome();
+                            }
+                            String inf = JOptionPane.showInputDialog("Informe a máteria" + matExistente);
+                            for (int i = 0; i < materias.size(); i++) {
+
+                                if (materias.get(i).getNome().equals(inf)) {
+                                    JOptionPane.showMessageDialog(null, materias.get(i).toString());
+                                }
+                            }
+
+                            break;
                         }
                     }
                     break;
                 }
+
                 case 5: {
-                    JOptionPane.showMessageDialog(null, matProfe.toString());
-                    break;
-                }
-                case 6: {
-                    JOptionPane.showMessageDialog(null, matAluno.toString());
-                    break;
-                }
-                case 7: {
-                    JOptionPane.showMessageDialog(null, "TCHAL !!!");
-                    break;
-                }
-                default: {
-                    JOptionPane.showMessageDialog(null, "Invalido");
-                    break;
+                    int cod1 = Integer.parseInt(JOptionPane.showInputDialog("Você quer por : \n"
+                            + "1:Codigo \n"
+                            + "2:Nome"));
+                    switch (cod1) {
+
+                        case 1: {
+                            String matExistente = "";
+                            for (Professor materia : matProfe) {
+                                matExistente += "\n" + matProfe.indexOf(materia) + " : " + materia.getNome();
+                            }
+                            int inf = Integer.parseInt(JOptionPane.showInputDialog("Informe a máteria" + matExistente));
+
+                            JOptionPane.showMessageDialog(null, matProfe.get(inf).toString());
+                            break;
+                        }
+                        case 2: {
+                            String matExistente = "";
+                            for (Professor materia : matProfe) {
+                                matExistente += "\n" + materia.getNome();
+                            }
+                            String inf = JOptionPane.showInputDialog("Informe a máteria" + matExistente);
+                            for (int i = 0; i < matProfe.size(); i++) {
+
+                                if (matProfe.get(i).getNome().equals(inf)) {
+                                    JOptionPane.showMessageDialog(null, matProfe.get(i).toString());
+                                }
+                            }
+
+                            break;
+                        }
+                        case 6: {
+                            int cod2 = Integer.parseInt(JOptionPane.showInputDialog("Você quer por : \n"
+                                    + "1:Codigo \n"
+                                    + "2:Nome"));
+                            switch (cod2) {
+
+                                case 1: {
+                                    String matExistente = "";
+                                    for (Aluno materia : matAluno) {
+                                        matExistente += "\n" + matAluno.indexOf(materia) + " : " + materia.getNome();
+                                    }
+                                    int inf = Integer.parseInt(JOptionPane.showInputDialog("Informe a máteria" + matExistente));
+
+                                    JOptionPane.showMessageDialog(null, matAluno.get(inf).toString());
+                                    break;
+                                }
+                                case 2: {
+                                    String matExistente = "";
+                                    for (Aluno materia : matAluno) {
+                                        matExistente += "\n" + materia.getNome();
+                                    }
+                                    String inf = JOptionPane.showInputDialog("Informe a máteria" + matExistente);
+                                    for (int i = 0; i < matAluno.size(); i++) {
+
+                                        if (matAluno.get(i).getNome().equals(inf)) {
+                                            JOptionPane.showMessageDialog(null, matAluno.get(i).toString());
+                                        }
+                                    }
+
+                                    break;
+                                }
+                                case 7: {
+                                    JOptionPane.showMessageDialog(null, "TCHAL !!!");
+                                    break;
+                                }
+                                default: {
+                                    JOptionPane.showMessageDialog(null, "Invalido");
+                                    break;
+                                }
+                            }
+
+                        }
+                        
+
+                    }
+
                 }
             }
-
-        } while (menu != 7);
-
-    }
-
+        }while (menu != 7);
+        }
 }
